@@ -1,15 +1,19 @@
+import functions
+import time
 import telebot
-from telebot import types
 import config
 from sql import add_user
+
 
 API_TOKEN = config.Token
 bot = telebot.TeleBot(API_TOKEN)
 user_dict = {}
 
 
-# Here stores all user's data we need for registration
 class User:
+    """
+    Stores all user's data we need for registration
+    """
     def __init__(self, firstname):
         self.firstname = firstname
         self.lastname = None
@@ -18,9 +22,12 @@ class User:
         self.birth_date = None
 
 
-# Allows the bot to say Hallo to User
 @bot.message_handler(commands=['start', ])
 def start(message):
+    """
+    Allows the bot to say Hallo to User
+    :return: None
+    """
     bot.send_message(message.chat.id, f'Приветствую, {message.from_user.first_name}! '
                                       f'Я помогу Вам выполнить регистрацию.'
                                       f'Чтобы избежать ошибок, сделаем всё по этапам.'
@@ -30,8 +37,11 @@ def start(message):
     bot.register_next_step_handler(msg, process_firstname)
 
 
-# next question and launch next step --> process_lastname
+#
 def process_firstname(message):
+    """
+    Next question and launch next step --> process_lastname
+    """
     try:
         chat_id = message.chat.id
         firstname = message.text
@@ -93,15 +103,17 @@ def process_birth_date(message):
 
     # checking if we have all the data we need for now:
     if user.firstname and user.lastname and user.e_mail and user.phone_number and user.birth_date :
-        data = (user.firstname,
+        user_id = str(time.time_ns())[:12]
+        data = (user_id,
+                user.firstname,
                 user.lastname,
                 user.e_mail,
                 user.phone_number,
                 user.birth_date,
                 chat_id,
-                'screenshot_adr',
+                f'{functions.screenshot_adr()}_{user_id}.jpg',
                 '0',
-                'extra_info')
+                '0')
         # sql.add_user(data) - write data to the data base
         add_user(data)
 
