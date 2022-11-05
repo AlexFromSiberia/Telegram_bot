@@ -1,5 +1,10 @@
-Other supported browsers will have their own drivers available. Links to some of the more popular browser drivers follow.
 
+
+
+Selenium library installation guide + webdriver  here:
+https://selenium-python.readthedocs.io/getting-started.html
+
+Download your web driver :
 Chrome:	https://sites.google.com/chromium.org/driver/
 Edge:	https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
 Firefox:	https://github.com/mozilla/geckodriver/releases
