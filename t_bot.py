@@ -37,7 +37,6 @@ def start(message):
     bot.register_next_step_handler(msg, process_firstname)
 
 
-#
 def process_firstname(message):
     """
     Next question and launch next step --> process_lastname
@@ -118,8 +117,11 @@ def process_birth_date(message):
         add_user(data)
 
 
-# Run the program
-if __name__ == '__main__':
+def run():
+    """
+    launches telegram bot
+    :return: None
+    """
     # Enable saving next step handlers to file "./.handlers-saves/step.save".
     # Delay=2 means that after any change in next step handlers (e.g. calling register_next_step_handler())
     # saving will hapen after delay 2 seconds.
@@ -128,3 +130,5 @@ if __name__ == '__main__':
     # WARNING It will work only if enable_save_next_step_handlers was called!
     bot.load_next_step_handlers()
     bot.infinity_polling()
+
+

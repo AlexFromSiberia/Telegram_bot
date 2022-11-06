@@ -6,7 +6,6 @@ import requests
 def screenshot_adr():
     """
     Creates file name for a screenshot in format «YYYY-MM-DD_HH:mm_<user id>.jpg»
-    :return:
     """
     t = str(datetime.datetime.now())
     date = t[:10]+'_'+t[11:16]+'_'

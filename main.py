@@ -1,12 +1,14 @@
 import time
 import selenium_
-import t_bot
+from t_bot import *
 
-# launch telegram bot
-t_bot.
+run()
 
-# launch selenium
-while True:
-    time.sleep(600)
-    selenium_.run_selenium()
 
+
+
+# # launch selenium
+# while True:
+#     time.sleep(600)
+#     selenium_.run_selenium()
+#
