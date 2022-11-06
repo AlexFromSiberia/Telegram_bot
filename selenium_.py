@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.service import Service
 import config
 import time
 import sql
+import functions
 
 
 def run_selenium():
@@ -32,6 +33,7 @@ def run_selenium():
 
             # open registration form
             driver.get(config.site_adr)
+            print('hi from selen')
             time.sleep(3)
             # fill in the first page of the form: firstname and lastname
             firstname_input = driver.find_element(By.NAME, "name")
@@ -67,11 +69,12 @@ def run_selenium():
             driver.execute_script("arguments[0].removeAttribute('readonly','readonly')", date_input)
             date_input.send_keys(user_data[5])
             time.sleep(1)
-            # click_next_3 = driver.find_element(By.XPATH, "/html/body/main/div/section/div/div/div/div/div/div/div/div/div[2]/form/div[4]/div[2]/button").click()
+            click_next_3 = driver.find_element(By.XPATH, "/html/body/main/div/section/div/div/div/div/div/div/div/div/div[2]/form/div[4]/div[2]/button").click()
             time.sleep(2)
 
             # saving screenshot with name in format «YYYY-MM-DD_HH:mm_<user id>.jpg»
-            driver.get_screenshot_as_file(f'{user_data[7]}')
+            driver.save_screenshot(f'{user_data[7]}')
+
             time.sleep(1)
         except Exception as e:
             print(e)
@@ -80,7 +83,8 @@ def run_selenium():
 
     #Sends the screenshot link to the User
     functions.send_link(user_data[6], user_data[7])
+    sql.change_status(user_data[0])
 
 
-
-
+while True:
+    run_selenium()

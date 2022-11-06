@@ -21,7 +21,6 @@ def change_status(user_id):
     cursor.execute(f'UPDATE users SET status = 1 WHERE id = {user_id}')
     connect.commit()
     cursor.close()
-#change_status(7)
 
 
 def get_user_data():
