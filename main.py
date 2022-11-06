@@ -6,11 +6,11 @@ from threading import Thread
 
 def run_selenium():
     """
-    Launches selenium
+    Launches selenium every 10 minutes
     :return: None
     """
     while True:
-        time.sleep(20)
+        time.sleep(600)
         selenium_.run_selenium()
         print('selen started')
 
