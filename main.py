@@ -1,26 +1,23 @@
 import selenium_
 from t_bot import *
-from multiprocessing import Process
-import os
-from time import sleep
+import time
+from threading import Thread
 
 
-# def run_selenium():
-    # # launch selenium
-    # while True:
-    #     time.sleep(20)
-    #     selenium_.run_selenium()
-    #     print('selen started')
+def run_selenium():
+    """
+    Launches selenium
+    :return: None
+    """
+    while True:
+        time.sleep(20)
+        selenium_.run_selenium()
+        print('selen started')
 
+
+th_1, th_2 = Thread(target=run), Thread(target=run_selenium)
 
 if __name__ == '__main__':
-    teleg = run()
-    selen = selenium_.run_selenium()
+    th_1.start(), th_2.start()
+    th_1.join(), th_2.join()
 
-    p1 = Process(target=teleg)
-    p2 = Process(target=selen)
-    p1.start()
-    p2.start()
-
-    p1.join()
-    p2.join()

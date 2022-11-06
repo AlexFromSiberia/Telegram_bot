@@ -4,6 +4,9 @@ Token = '5709386163:AAFhyB5bgrCZQ5khKZZvCoVJY5zZhw4unXI'
 # Dir for saving all the screenshots
 screenshots_dir = 'static/'
 
+# url address of your server. N
+prefix = 'http://bestserviceever/'
+
 # Registration form address
 site_adr = 'https://b24-iu5stq.bitrix24.site/backend_test/'
 

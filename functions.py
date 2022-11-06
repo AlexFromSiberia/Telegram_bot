@@ -18,7 +18,7 @@ def send_link(chat_id, link):
     using api Telegram: send request to url:
     https://api.telegram.org/bot{token}{api_method}?chat_id={id}&text={text}
     """
-    text = f'Ссылка на скриншот об успешной регистрации: {link}'
+    text = f'Ссылка на скриншот об успешной регистрации: {config.prefix}{link}'
     token = config.Token
     api = 'https://api.telegram.org/bot'
     api_method = '/sendMessage'
