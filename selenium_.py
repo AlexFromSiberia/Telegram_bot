@@ -33,7 +33,6 @@ def run_selenium():
 
             # open registration form
             driver.get(config.site_adr)
-            print('hi from selen')
             time.sleep(4)
             # fill in the first page of the form: firstname and lastname
             firstname_input = driver.find_element(By.NAME, "name")
@@ -41,6 +40,9 @@ def run_selenium():
             firstname_input.clear()
             firstname_input.send_keys(user_data[1])
             time.sleep(1)
+
+            # change user status in bata base
+            sql.change_status(user_data[0])
 
             lastname_input = driver.find_element(By.NAME, "lastname")
             lastname_input.clear()
@@ -77,9 +79,8 @@ def run_selenium():
 
             # Sends the screenshot link to the User
             functions.send_link(user_data[6], user_data[7])
-            sql.change_status(user_data[0])
-
             time.sleep(1)
+
         except Exception as e:
             print(e)
         finally:

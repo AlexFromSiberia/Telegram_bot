@@ -114,7 +114,10 @@ def process_birth_date(message):
                 '0',
                 '0')
         # sql.add_user(data) - write data to the data base
-        add_user(data)
+        if functions.email_check(user.e_mail) == True:
+            add_user(data)
+        else:
+            functions.emailErrorMessage(chat_id)
 
 
 def run():
