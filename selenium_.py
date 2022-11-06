@@ -78,5 +78,9 @@ def run_selenium():
         finally:
             driver.close()
 
+    #Sends the screenshot link to the User
+    functions.send_link(user_data[6], user_data[7])
+
+
 
 
