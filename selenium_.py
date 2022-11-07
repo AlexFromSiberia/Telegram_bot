@@ -71,7 +71,8 @@ def run_selenium():
             driver.execute_script("arguments[0].removeAttribute('readonly','readonly')", date_input)
             date_input.send_keys(user_data[5])
             time.sleep(1)
-            click_next_3 = driver.find_element(By.XPATH, "/html/body/main/div/section/div/div/div/div/div/div/div/div/div[2]/form/div[4]/div[2]/button").click()
+            click_next_3 = driver.find_element(By.XPATH,
+                                               "/html/body/main/div/section/div/div/div/div/div/div/div/div/div[2]/form/div[4]/div[2]/button").click()
             time.sleep(3)
 
             # saving screenshot with name in format «YYYY-MM-DD_HH:mm_<user id>.jpg»

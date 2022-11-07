@@ -28,6 +28,9 @@ def start(message):
     Allows the bot to say Hallo to User
     :return: None
     """
+    sticker = open('sticker_for_t_bot/fun_boy.tgs', 'rb')
+    bot.send_sticker(message.chat.id, sticker)
+
     bot.send_message(message.chat.id, f'Приветствую, {message.from_user.first_name}! '
                                       f'Я помогу Вам выполнить регистрацию.'
                                       f'Чтобы избежать ошибок, сделаем всё по этапам.'
@@ -127,7 +130,7 @@ def run():
     """
     # Enable saving next step handlers to file "./.handlers-saves/step.save".
     # Delay=2 means that after any change in next step handlers (e.g. calling register_next_step_handler())
-    # saving will hapen after delay 2 seconds.
+    # saving will happen after delay 2 seconds.
     bot.enable_save_next_step_handlers(delay=2)
     # Load next_step_handlers from save file (default "./.handlers-saves/step.save")
     # WARNING It will work only if enable_save_next_step_handlers was called!

@@ -12,7 +12,6 @@ def run_selenium():
     while True:
         time.sleep(600)
         selenium_.run_selenium()
-        print('selen started')
 
 
 th_1, th_2 = Thread(target=run), Thread(target=run_selenium)
