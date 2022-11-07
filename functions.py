@@ -3,6 +3,7 @@ import config
 import requests
 import re
 
+
 def screenshot_adr():
     """
     Creates file name for a screenshot in format «YYYY-MM-DD_HH:mm_<user id>.jpg»
